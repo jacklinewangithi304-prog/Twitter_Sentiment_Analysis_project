@@ -93,10 +93,79 @@ Hyperparameter optimization in conjunction with GridSearchCV were used this mode
 
 Cross-validation assisted in model regularization and the use of macro F1-score helps ensure that all the sentiment classes, both majority and minority are taken into consideration during model selection.
 
-### Model Comparison
-|Model	|Strengths	|Weaknesses|
-Logistic Regression	High accuracy	Poor minority-class detection
-Logistic Regression (Balanced)	Improved recall	Slightly reduced precision
-Multinomial Naive Bayes	Fast and simple	Lower overall performance
-LinearSVC	Strong balanced performance	Less interpretable
-Tuned LinearSVC	Best overall results	Higher training complexity
+## Best Model
+The tuned LinearSVC achieved the strongest balance between overall accuracy and minority-class performance.
+
+### Model Classification Report
+The main evaluation matrix used in determining the model performance include; 
+- Accuracy
+- Precision
+- Recall
+- F1-score
+
+Macro F1-score
+The tuned LinearSVC achieved approximately:
+
+Accuracy: 90.3%
+Macro F1-Score: 0.76
+
+## Confusion Matrix
+![alt text](image-4.png)
+
+## Interpretation
+The confusion matrix indicates that the model is highly effective at identifying neutral and positive sentiments, with the majority of tweets in these categories being classified correctly.
+
+In contrast, negative sentiment continues to be the most difficult class to predict accurately. 
+
+A portion of negative tweets is misclassified as either neutral or positive, which may be attributed to similarities in the language and expressions used across sentiment categories. 
+
+Nevertheless, the optimized LinearSVC model shows noticeable improvement in recognizing negative sentiment compared to previous models, demonstrating enhanced capability in handling minority-class instances
+
+### Model Interpretation
+It is vital to understand how the model makes the prediction.
+## Feature Importance
+The best model as identified above is a LinearSVC whose features have a linear relationship to the coefficient magnitudes.
+![alt text](image-3.png)
+## Insight
+Words features with higher positive weights have a greater influence on the model's predictions, thereby contributing to the categorization of tweets into positive classification thus making the model explain the decision making process.
+
+## LIME Explanation
+
+LIME is useful in explaining the individual predictions whereby it approximates the model locally using simple interpretable model around specific data point.
+
+The model predicted a probability of 0.71 on the tweet as No emotion toward brand or product. This implies that the sentiment expressed is neutral. However, the other probabilities show much less support on the remaining classes i.e. 0.26 towards Positive emotion and 0.03 towards Negative emotion.
+
+### Key Findings
+- The sentiment analysis shows that most tweets are concentrated in the neutral class. 
+
+- The minority class is the negative emotions sentiment since it has the least number of tweets. 
+
+- A class imbalance among the three sentiment classes makes the model to learn more on the neutral sentiments due to the high frequency of such tweets. This affects the model performance.
+
+- Text preprocessing significantly improved data quality by removing noise and standardizing tweet content.
+
+- The models, Logistic Regression, and Naive Bayes performed well in their accuracy scores but failed in identifying the minority class. 
+
+- LinearSVC performed the best in ensuring a balanced performance across the sentiments.
+
+- Hyperparameter tuning further improved the model's ability to detect negative sentiment while maintaining high overall accuracy.
+
+- Overall, the findings demonstrate that the LinearSVC model is well-suited for sentiment classification tasks involving short social media texts, while also highlighting the impact of class imbalance on predictive performance.
+
+## Recommendations
+
+- I recommend the implementation of the optimized LinearSVC model for continuous automated sentiment tracking.
+
+- More attention should be made on the negative sentiment trends, as they may signal developing customer issues or dissatisfaction.
+
+- Gather more negative tweet samples to strengthen representation of the minority class in the dataset.
+
+- Investigate advanced methods such as SMOTE or transformer-based approaches to enhance model performance further.
+
+- Regularly update and retrain the model using fresh social media data to keep up with evolving language and user sentiment patterns.
+
+### Conclusion
+This project built and assessed machine learning models to classify the sentiment of Twitter posts related to Apple and Google products. Following thorough data preprocessing, feature extraction, and model evaluation, multiple classification algorithms were compared.
+
+The optimized LinearSVC model performed best overall, achieving strong accuracy and relatively balanced predictions across sentiment classes. These findings show that machine learning can effectively interpret social media sentiment and generate useful insights for brand monitoring and understanding customer feedback
+
