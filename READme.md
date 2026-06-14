@@ -108,6 +108,16 @@ The tuned LinearSVC achieved approximately:
 
 Accuracy: 90.3%
 Macro F1-Score: 0.76
+## Model Summary
+
+| Metric | Value |
+|---|---|
+| Final Model | LinearSVC (Optimized, RandomizedSearchCV) |
+| Test Macro F1 | ~0.78 |
+| Negative emotion Recall | ~0.43 (minority class) |
+| No emotion toward brand or product Recall | ~0.97 |
+| Positive emotion Recall | ~0.87  |
+| Validation Strategy | Stratified 80/20 split + 5-fold CV inside RandomizedSearchCV |
 
 ## Confusion Matrix
 ![alt text](image-4.png)
