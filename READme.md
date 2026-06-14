@@ -57,3 +57,46 @@ Several visualizations were created to help understand the feature components of
 
 ## Target variable distribution 
 ![alt text](image.png)
+# Key insights
+The distribution of sentiments show that most tweet sentiments were neutral while a medium number of tweets were of positive emotion sentiments.
+
+## Brand sentiment Analysis
+Sentiments were analyzed across the target brands and visualized as below.
+![alt text](image-1.png)
+The graph  above shows class imbalance across the different brands as more 50% of the sentiments are neutral (No emotion toward brand or product). This imbalance results to misleading model performance metrices such as accurecy hence making it unreliable in business decisions.
+
+## Frequency of words in the tweets
+The most frequent words highlight the main themes in the cleaned tweets, showing the key topics users are talking about. This helps in understanding common discussion patterns and overall sentiment context in the dataset.
+![alt text](image-2.png)
+
+### Feature Engineering
+In this project, two types of features were created namely;
+## Text Features
+TF-IDF Vectorization
+Parameter tuning to maximize features, n-gram range and minimum document frequency.
+## Brand Features
+One-Hot Encoding which was applied to brand variable and ColumnTransformer pipeline.
+
+### Machine Learning Models
+The models used in this project include;
+
+## Logistic Regression 
+The baseline model was used due to its good perfomance on high-dimensional sparse text data and interpretable outputs.
+The model was tested using binary classification then improved with multiclass classification.
+Further, the logistic model on the multiclass was applied to class weighting to address the issue of class imbalance.
+
+## Multinomial Naive Bayes
+This model is widely used in task classification tasks due to its simplicity, speed to train, and works well with word-frequency based features.
+
+## Tuned LinearSVC
+Hyperparameter optimization in conjunction with GridSearchCV were used this model to improve its classication performance. 
+
+Cross-validation assisted in model regularization and the use of macro F1-score helps ensure that all the sentiment classes, both majority and minority are taken into consideration during model selection.
+
+### Model Comparison
+Model	Strengths	Weaknesses
+Logistic Regression	High accuracy	Poor minority-class detection
+Logistic Regression (Balanced)	Improved recall	Slightly reduced precision
+Multinomial Naive Bayes	Fast and simple	Lower overall performance
+LinearSVC	Strong balanced performance	Less interpretable
+Tuned LinearSVC	Best overall results	Higher training complexity
