@@ -32,3 +32,28 @@ The target variable is sentiment. It will help in identifying the distribution o
 •	Examples of tweets in each category 
 •	Potential imbalance between classes 
 This step is important because imbalanced data can bias a model toward predicting the majority class
+
+## Data Preparation and Cleaning
+The dataset will then be cleaned by removing missing values to enhance reliability, elimination of stop words, removal of tweets labelled *“I can’t tell”* and simplifying the **target_brand** field into two main groups(Apple and Google).
+## Text Preprocessing
+In this stage, we transform the tweet dataset into a suitable format for machine learning through a structured preprocessing workflow. The text preprocessing workflow include:
+
+- Convestion of text to lowercase.
+
+- Removal of URLs
+
+- Removal of twitter handles
+
+- Removal of punctuation and special characters
+
+- Removal of stopwords 
+
+- Lemmatization 
+These steps are vital in reducing irrelevant information, standardizing the text, and improving the effectiveness of the sentiment classification model.
+The complete preprocessed tweet is converted into a clean and standardized text for vectorization using TF-IDF thus enhancing computational efficienct and performance of the sentiment model.
+
+## EXPLORATORY DATA ANALYSIS (EDA)
+Several visualizations were created to help understand the feature components of the data before modelling.
+
+## Target variable distribution 
+![alt text](image.png)
