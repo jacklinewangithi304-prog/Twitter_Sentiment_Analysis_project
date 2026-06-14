@@ -94,7 +94,7 @@ Hyperparameter optimization in conjunction with GridSearchCV were used this mode
 Cross-validation assisted in model regularization and the use of macro F1-score helps ensure that all the sentiment classes, both majority and minority are taken into consideration during model selection.
 
 ### Model Comparison
-Model	Strengths	Weaknesses
+|Model	|Strengths	|Weaknesses|
 Logistic Regression	High accuracy	Poor minority-class detection
 Logistic Regression (Balanced)	Improved recall	Slightly reduced precision
 Multinomial Naive Bayes	Fast and simple	Lower overall performance
